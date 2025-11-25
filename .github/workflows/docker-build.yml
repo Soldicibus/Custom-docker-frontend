@@ -33,12 +33,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # Generate lowercase image name
       - name: Set image tag
-        id: vars
         run: |
-          echo "IMAGE_TAG=ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/${GITHUB_REPOSITORY##*/,,}:latest" >> $GITHUB_ENV
-          echo "IMAGE_SHA_TAG=ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/${GITHUB_REPOSITORY##*/,,}:${GITHUB_SHA}" >> $GITHUB_ENV
+          IMAGE_NAME="ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/${GITHUB_REPOSITORY##*/,,}:latest"
+          echo "IMAGE_TAG=$IMAGE_NAME" >> $GITHUB_ENV
 
       # Build & Push Docker image
       - name: Build and push Docker image
@@ -46,4 +44,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.IMAGE_TAG }},${{ env.IMAGE_SHA_TAG }}
+          tags: ${{ env.IMAGE_TAG }}
