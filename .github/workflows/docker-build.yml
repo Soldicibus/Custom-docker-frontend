@@ -35,7 +35,7 @@ jobs:
 
       - name: Set image tag
         run: |
-          IMAGE_TAG="ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/${GITHUB_REPOSITORY##*/,,}:latest"
+          IMAGE_TAG="ghcr.io/${GITHUB_REPOSITORY##*/,,}:latest"
           echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
 
 
