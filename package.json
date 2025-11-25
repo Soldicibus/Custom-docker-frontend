@@ -2,7 +2,7 @@
   "name": "custom-docker-frontend",
   "version": "1.0.0",
   "scripts": {
-    "build": "echo 'build step placeholder'"
+    "build": "echo 'build step placeholders'"
   },
   "dependencies": {}
 }
